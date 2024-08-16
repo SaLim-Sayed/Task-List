@@ -22,7 +22,7 @@ export default function MainNavbar() {
   ];
 
   return (
-    <Navbar  isBordered>
+    <Navbar isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -44,24 +44,21 @@ export default function MainNavbar() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <NavLink to="/">Features</NavLink>
+          <NavLink to="/todo">Todo</NavLink>
         </NavbarItem>
         <NavbarItem isActive>
           <NavLink to="/about">About</NavLink>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" to="/">
-            Integrations
+          <Link color="foreground" to="/users">
+            Users
           </Link>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link to="#">Login</Link>
-        </NavbarItem>
         <NavbarItem>
-          <Button as={Link} color="warning" to="#" variant="flat">
+          <Button as={Link} color="warning" to="/register" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>

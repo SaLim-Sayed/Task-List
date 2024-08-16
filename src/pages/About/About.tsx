@@ -1,6 +1,6 @@
 // src/pages/About.tsx
 import React from "react";
-import Center from "../components/Global/Center";
+import Center from "../../components/Global/Center";
 
 const About: React.FC = () => {
   return (
