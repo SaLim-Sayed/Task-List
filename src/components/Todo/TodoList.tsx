@@ -19,7 +19,7 @@ const TodoList: React.FC = () => {
   });
   console.log({ todos });
   return (
-    <div className="p-4 space-y-4 w-full md:w-[70%]">
+    <div className="p-4 space-y-4 w-full md:w-[60%]">
       <Select
         label="Filter Todos"
         placeholder="Select a filter"

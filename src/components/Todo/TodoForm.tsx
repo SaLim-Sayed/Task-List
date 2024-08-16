@@ -30,7 +30,7 @@ const TodoForm: React.FC = () => {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="   flex w-full  md:w-[30%] justify-center items-center gap-4"
+      className="   flex w-full  md:w-[40%] justify-center items-center gap-4"
     >
       <Card className=" w-full shadow-lg p-4">
         <div>
