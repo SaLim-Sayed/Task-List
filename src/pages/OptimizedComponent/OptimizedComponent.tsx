@@ -8,7 +8,7 @@ interface Item {
   value: string;
 }
 
-const ExpensiveList: React.FC<{ items: Item[] }> = React.memo(({ items }) => {
+const ItemList: React.FC<{ items: Item[] }> = React.memo(({ items }) => {
   const [renderCount, setRenderCount] = useState(0);
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const OptimizedComponent: React.FC = () => {
     <Center>
       <Title title="Optimized Component" />
       <Button onClick={increment}>Increment Count: {count}</Button>
-      <ExpensiveList items={items} />
+      <ItemList items={items} />
     </Center>
   );
 };

@@ -7,13 +7,14 @@ import RegistrationForm from "./pages/Register/RegistrationForm";
 import Todo from "./pages/Todo/Todo";
 import UserList from "./pages/Users/UserList";
 import OptimizedComponent from "./pages/OptimizedComponent/OptimizedComponent";
+import Home from "./pages/Home/Home";
 
 function App() {
   return (
     <div>
       <MainNavbar />
       <Routes>
-        <Route path="/" element={<Todo />} />
+        <Route path="/" element={<Home />} />
         <Route path="/todo" element={<Todo />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
