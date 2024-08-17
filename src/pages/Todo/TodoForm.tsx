@@ -10,8 +10,10 @@ const todoSchema = z.object({
 });
 
 type TodoFormValues = z.infer<typeof todoSchema>;
-
-const TodoForm: React.FC = () => {
+interface TodoFormProps {
+  setActive: (active: boolean) => void;
+}
+const TodoForm: React.FC<TodoFormProps> = ({ setActive }) => {
   const {
     register,
     handleSubmit,
@@ -25,12 +27,13 @@ const TodoForm: React.FC = () => {
   const onSubmit = (data: TodoFormValues) => {
     addTodo({ ...data, id: Date.now(), completed: false });
     reset();
+    setActive(false);
   };
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="   flex w-full  md:w-[40%] justify-center items-center gap-4"
+      className="   flex w-full justify-center items-center gap-4"
     >
       <Card className=" w-full shadow-lg p-4">
         <div>

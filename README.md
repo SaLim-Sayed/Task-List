@@ -1,50 +1,101 @@
-# React + TypeScript + Vite
+# ecom-payment task
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
+- [ecom-payment task](#ecom-payment-task)
+  - [Table of Contents](#table-of-contents)
+  - [Technologies Used](#technologies-used)
+  - [Project Structure](#project-structure)
+- [Project Name](#project-name)
+  - [Table of Contents](#table-of-contents-1)
+  - [Technologies Used](#technologies-used-1)
+  - [Project Structure](#project-structure-1)
+- [Running the Project in Development](#running-the-project-in-development)
 
-Currently, two official plugins are available:
+## Technologies Used
+This project uses the following technologies:
+- **React:** A JavaScript library for building user interfaces.
+- **NextUI:** A modern and accessible UI component library.
+- **TypeScript:** A superset of JavaScript that adds static typing.
+- **React Router:** Declarative routing for React applications.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+## Project Structure
+The project is organized as follows:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```plaintext
+├── public
+│   ├── LOGO.svg
+├── src
+│   ├── components
+│   │   ├── Global
+│   │   │   ├── Title.tsx
+│   │   │   ├── Center.tsx
+│   ├── pages
+│   │   ├── index.tsx
+│   │   ├── todo.tsx
+│   │   ├── users.tsx
+│   │   ├── optimized.tsx
+│   │   ├── about.tsx
+│   │   ├── contact.tsx
+│   ├── App.tsx
+│   ├── MainNavbar.tsx
+├── README.md
+├── package.json
+├── tsconfig.json
 
-- Configure the top-level `parserOptions` property like this:
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Here’s how the updated README.md file should look with the improved readability:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+markdown
+Copy code
+# Project Name
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Table of Contents
+- [Technologies Used](#technologies-used)
+- [Project Structure](#project-structure)
+- [Running the Project in Development](#running-the-project-in-development)
+
+## Technologies Used
+This project uses the following technologies:
+- **React:** A JavaScript library for building user interfaces.
+- **NextUI:** A modern and accessible UI component library.
+- **TypeScript:** A superset of JavaScript that adds static typing.
+- **React Router:** Declarative routing for React applications.
+
+## Project Structure
+The project is organized as follows:
+
+```plaintext
+├── public
+│   ├── LOGO.svg
+├── src
+│   ├── components
+│   │   ├── Global
+│   │   │   ├── Title.tsx
+│   │   │   ├── Center.tsx
+│   ├── pages
+│   │   ├── index.tsx
+│   │   ├── todo.tsx
+│   │   ├── users.tsx
+│   │   ├── optimized.tsx
+│   │   ├── about.tsx
+│   │   ├── contact.tsx
+│   ├── App.tsx
+│   ├── MainNavbar.tsx
+├── README.md
+├── package.json
+├── tsconfig.json
+
+
+
+# Running the Project in Development
+To start the development server, follow these steps:
+
+Navigate to the Project Directory:
+Ensure you are in the root directory of the project.
+
+Start the Development Server:
+Run the following command in your terminal:
+
+npm run dev

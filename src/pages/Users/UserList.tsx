@@ -5,7 +5,7 @@ import useFetch from "../../hooks/useFetch";
 import UserCard from "./UserCard";
 
 export default function UserList() {
-  const { data, loading } = useFetch<User[]>("https://fakestoreapi.com/users");
+  const { data,error, loading } = useFetch<User[]>("https://fakestoreapi.com/users");
 
   if (loading)
     return (
@@ -16,6 +16,7 @@ export default function UserList() {
         </div>
       </Center>
     );
+    if (error) return <p>Error: {error}</p>;
   return (
       <Center>
       <Title title="Users" />

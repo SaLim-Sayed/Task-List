@@ -19,7 +19,7 @@ const TodoList: React.FC = () => {
   });
   console.log({ todos });
   return (
-    <div className="p-4 space-y-4 w-full md:w-[60%]">
+    <div className="p-4 space-y-4 w-full ">
       <Select
         label="Filter Todos"
         placeholder="Select a filter"
@@ -61,7 +61,7 @@ const TodoList: React.FC = () => {
                   onChange={() => toggleTodo(todo.id)}
                 />
 
-                <div className="flex flex-col">
+                <div className="flex flex-col ">
                   <div className="text-lg font-bold"> Title : {todo.title}</div>
                   <div>Description : {todo.description}</div>
                 </div>

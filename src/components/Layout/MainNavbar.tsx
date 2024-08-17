@@ -9,25 +9,38 @@ import {
   NavbarMenuItem,
   NavbarMenuToggle,
 } from "@nextui-org/react";
-
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import logo from "./../../../public/LOGO.1e027695.svg";
+
 export default function MainNavbar() {
-  const menuItems = ["todo", "about", "users", "register"];
+  const menuItems = [
+    "todo",
+    "users",
+    "optimized",
+    "about",
+    "contact",
+    "register",
+  ];
+
+  const activeLinkStyle = {
+    color: "#ff9900", // Custom color for active link
+    fontWeight: "bold",
+  };
 
   return (
-    <Navbar isBlurred  isBordered>
+    <Navbar isBlurred isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
 
-      <NavbarContent className="sm:hidden " justify="center">
+      <NavbarContent className="sm:hidden" justify="center">
         <NavbarBrand>
           <NavLink to="/">
             <Image src={logo} width={50} height={50} />
           </NavLink>
         </NavbarBrand>
       </NavbarContent>
+
       <NavbarContent className="hidden sm:flex gap-4" justify="start">
         <NavbarBrand>
           <NavLink to="/">
@@ -38,21 +51,54 @@ export default function MainNavbar() {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem>
-          <NavLink to="/todo">Todo</NavLink>
+          <NavLink
+            to="/todo"
+            style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+          >
+            Todo
+          </NavLink>
         </NavbarItem>
-        <NavbarItem isActive>
-          <NavLink to="/about">About</NavLink>
-        </NavbarItem>
+
         <NavbarItem>
-          <Link color="foreground" to="/users">
+          <NavLink
+            to="/users"
+            style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+          >
             Users
-          </Link>
+          </NavLink>
+        </NavbarItem>
+
+        <NavbarItem>
+          <NavLink
+            to="/optimized"
+            style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+          >
+            Optimized
+          </NavLink>
+        </NavbarItem>
+
+        <NavbarItem>
+          <NavLink
+            to="/about"
+            style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+          >
+            About
+          </NavLink>
+        </NavbarItem>
+
+        <NavbarItem>
+          <NavLink
+            to="/contact"
+            style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+          >
+            Contact
+          </NavLink>
         </NavbarItem>
       </NavbarContent>
 
       <NavbarContent justify="end">
         <NavbarItem>
-          <Button as={Link} color="warning" to="/register" variant="flat">
+          <Button as={NavLink} color="warning" to="/register" variant="flat">
             Sign Up
           </Button>
         </NavbarItem>
@@ -61,7 +107,12 @@ export default function MainNavbar() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link to={`/${item}`}>{item}</Link>
+            <NavLink
+              to={`/${item}`}
+              style={({ isActive }) => (isActive ? activeLinkStyle : undefined)}
+            >
+              {item}
+            </NavLink>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>
