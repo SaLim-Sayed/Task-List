@@ -13,16 +13,10 @@ import {
 import { Link, NavLink } from "react-router-dom";
 import logo from "./../../../public/LOGO.1e027695.svg";
 export default function MainNavbar() {
-  const menuItems = [
-    "Features",
-    "About",
-    "Integrations",
-    "Login",
-    "Sign Up",
-  ];
+  const menuItems = ["todo", "about", "users", "register"];
 
   return (
-    <Navbar isBordered>
+    <Navbar isBlurred  isBordered>
       <NavbarContent className="sm:hidden" justify="start">
         <NavbarMenuToggle />
       </NavbarContent>
@@ -67,7 +61,7 @@ export default function MainNavbar() {
       <NavbarMenu>
         {menuItems.map((item, index) => (
           <NavbarMenuItem key={`${item}-${index}`}>
-            <Link to={"/"}>{item}</Link>
+            <Link to={`/${item}`}>{item}</Link>
           </NavbarMenuItem>
         ))}
       </NavbarMenu>

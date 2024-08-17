@@ -1,6 +1,8 @@
 import { User } from "../../@types/user";
 import Center from "../../components/Global/Center";
+import Title from "../../components/Global/Title";
 import useFetch from "../../hooks/useFetch";
+import UserCard from "./UserCard";
 
 export default function UserList() {
   const { data, loading } = useFetch<User[]>("https://fakestoreapi.com/users");
@@ -15,10 +17,17 @@ export default function UserList() {
       </Center>
     );
   return (
-    <Center>
-      {data
-        ? data.map((user) => <div key={user.id}>{user.username}</div>)
-        : "No data"}
+      <Center>
+      <Title title="Users" />
+      <div className="flex flex-1  justify-center items-center  gap-3 flex-wrap">
+        {data
+          ? data.map((user) => (
+              <div className=" flex" key={user.id}>
+                <UserCard user={user} />
+              </div>
+            ))
+          : "No data"}
+      </div>
     </Center>
   );
 }
