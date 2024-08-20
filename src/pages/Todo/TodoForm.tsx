@@ -65,7 +65,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ setActive }) => {
           />
         </div>
         <Button type="submit" className="bg-blue-500 text-white ">
-          Add Todo
+          Add Task
         </Button>
       </Card>
     </form>
