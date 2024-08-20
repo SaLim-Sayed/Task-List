@@ -1,4 +1,11 @@
-import { Button, Card, Checkbox, Select, SelectItem } from "@nextui-org/react";
+import {
+  Button,
+  Card,
+  CardHeader,
+  Checkbox,
+  Select,
+  SelectItem,
+} from "@nextui-org/react";
 import React from "react";
 import { BiTrash } from "react-icons/bi";
 import useTodoStore from "../../store/todoStore";
@@ -19,9 +26,9 @@ const TodoList: React.FC = () => {
   });
   console.log({ todos });
   return (
-    <div className="p-4 space-y-4 w-full ">
+    <div className="p-4 space-y-4 w-full text-teal-900 ">
       <Select
-        label="Filter Todos"
+        label="Filter Tasks"
         placeholder="Select a filter"
         selectedKeys={[filter]}
         value={filter}
@@ -29,10 +36,10 @@ const TodoList: React.FC = () => {
           console.log("Selected filter value:", value.target.value);
           setFilter(value.target.value as "all" | "completed" | "incomplete");
         }}
-        className="mb-4 max-w-xs"
+        className="mb-4 max-w-full"
       >
         <SelectItem key="all" value="all">
-          All Todos
+          All Tasks
         </SelectItem>
         <SelectItem key="completed" value="completed">
           Completed
@@ -41,51 +48,53 @@ const TodoList: React.FC = () => {
           Incomplete
         </SelectItem>
       </Select>
-     
 
       <div className="space-y-2">
         {filteredTodos.map((todo) => (
           <Card
             key={todo.id}
-             title={todo.completed ? "Completed" : "Incomplete"}
+            title={todo.completed ? "Completed" : "Incomplete"}
             className={cn(
-              "items-center shadow-2xl p-2 cursor-pointer   ",
-              todo.completed ? " bg-cyan-700  text-white " : ""
+              "items-center shadow-2xl  cursor-pointer   text-teal-900   ",
+              todo.completed && "bg-orange-100"
             )}
           >
-            <div className="flex w-full justify-between">
-              <div className="flex gap-2 items-start">
-                <Checkbox
-                  isSelected={todo.completed}
-                  color="primary"
-                  onChange={() => toggleTodo(todo.id)}
-                />
-
-                <div className="flex flex-col ">
-                  <div className="text-lg font-bold"> Title : {todo.title}</div>
-                  <div>Description : {todo.description}</div>
+            <div className="flex w-full  items-start">
+              <div className="flex flex-col w-full justify-start">
+                <CardHeader className="bg-gray-100">
+                  <div className="flex w-full  items-start">
+                    <Checkbox
+                      isSelected={todo.completed}
+                      color="primary"
+                      onChange={() => toggleTodo(todo.id)}
+                    />
+                    <div className="text-lg font-bold"> {todo.title}</div>
+                  </div>
+                  <div className="flex">
+                    {todo.completed && (
+                      <Button
+                        className="text-green-500"
+                        isIconOnly
+                        variant="light"
+                        color="secondary"
+                      >
+                        <GiCheckMark size={24} />
+                      </Button>
+                    )}
+                    <Button
+                      onClick={() => deleteTodo(todo.id)}
+                      className="text-red-500"
+                      isIconOnly
+                      variant="light"
+                      color="danger"
+                    >
+                      <BiTrash size={24} />
+                    </Button>
+                  </div>
+                </CardHeader>
+                <div className="flex w-[97%] justify-between  border bg-white m-2 rounded-md p-2">
+                  <div>{todo.description}</div>
                 </div>
-              </div>
-              <div className="flex">
-                {todo.completed && (
-                  <Button
-                    className="text-green-500"
-                    isIconOnly
-                    variant="light"
-                    color="secondary"
-                  >
-                    <GiCheckMark size={24} />
-                  </Button>
-                )}
-                <Button
-                  onClick={() => deleteTodo(todo.id)}
-                  className="text-red-500"
-                  isIconOnly
-                  variant="light"
-                  color="danger"
-                >
-                  <BiTrash size={24} />
-                </Button>
               </div>
             </div>
           </Card>
