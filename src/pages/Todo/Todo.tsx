@@ -10,7 +10,7 @@ const Todo: React.FC = () => {
   return (
     <div>
       <div className="flex justify-between p-2  fixed w-full z-50  items-end bg-orange-200">
-        <div className="text-3xl text-purple-900 font-bold">Task List</div>
+        <div className="text-3xl text-purple-900 font-bold">Taskfy</div>
         <Button
           color="secondary"
           onClick={() => setActive(!active)}
